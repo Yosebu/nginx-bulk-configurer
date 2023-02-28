@@ -1,11 +1,12 @@
 #!/bin/bash
 input="domains.txt"
 
-echo "Create directories for configured domains?"
-select yn in "Yes" "No"; do
+while true; do
+    read -p "Create directories of configured domains? [y/n]" yn
     case $yn in
-        Yes ) make_dir = true; break;;
-        No ) make_dir = false; exit;;
+        [Yy]* ) make_dir=true; break;;
+        [Nn]* ) make_dir=false; break;;
+        * ) echo "Please answer yes or no.";;
     esac
 done
 
